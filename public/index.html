@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FIT 轨迹生成工具</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="sidebar">
+        <h1>FIT 轨迹生成工具</h1>
+        <div class="form-group">
+          <label for="hrRest">静息心率</label>
+          <input id="hrRest" type="number" min="30" max="120" value="60" />
+        </div>
+        <div class="form-group">
+          <label for="hrMax">最大心率</label>
+          <input id="hrMax" type="number" min="100" max="220" value="180" />
+        </div>
+        <div class="form-group">
+          <label for="lapCount">圈数（重复次数）</label>
+          <input id="lapCount" type="number" min="1" value="1" />
+        </div>
+        <div class="form-group">
+          <label for="exportCount">导出份数</label>
+          <input id="exportCount" type="number" min="1" max="10" value="1" />
+        </div>
+        <div id="exportTimes" class="export-times"></div>
+        <div id="distanceInfo" class="distance-info"></div>
+        <div class="form-group buttons">
+          <button id="clearRoute" type="button">清除轨迹</button>
+          <button id="previewBtn" type="button">预览曲线</button>
+          <button id="generateFit" type="button">生成 FIT 文件</button>
+        </div>
+        <div id="message" class="message"></div>
+        <div class="preview-panel">
+          <div class="preview-chart">
+            <h2>配速预览（min/km）</h2>
+            <canvas id="paceChart"></canvas>
+          </div>
+          <div class="preview-chart">
+            <h2>心率预览（bpm）</h2>
+            <canvas id="hrChart"></canvas>
+          </div>
+        </div>
+        <div id="liveInfo" class="live-info"></div>
+        <p class="tip">在右侧地图上点击绘制轨迹点，系统会自动连成路线。</p>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
