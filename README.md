@@ -39,9 +39,16 @@
 
 ## 环境要求
 
-推荐使用 Node.js 18 或更高版本。项目目录中如果保留了 `node-v24.12.0-win-x64`，可以在 Windows 上通过 `run-fit-tool.cmd` 使用随项目附带的 Node.js。
+本仓库不会上传 `node_modules/` 和 `node-v24.12.0-win-x64/`，因此使用者需要先在本机安装 Node.js 环境。
 
-首次运行需要安装依赖；前端地图和图表依赖外部 CDN 与 OpenStreetMap 瓦片服务，因此使用地图时需要网络连接。
+建议环境：
+
+- Node.js 18 或更高版本。
+- npm，通常会随 Node.js 一起安装。
+- 现代浏览器，例如 Chrome、Edge、Firefox 或 Safari。
+- 可访问外部网络。前端地图、图表和地图瓦片依赖 Leaflet、Chart.js、OpenStreetMap 等外部资源，使用地图和预览功能时需要网络连接。
+
+首次运行前需要执行 `npm install`，npm 会根据 `package.json` 和 `package-lock.json` 自动下载并生成 `node_modules/` 目录。这个目录是本地依赖缓存，不需要提交到 GitHub。
 
 ## 安装与启动
 
@@ -60,13 +67,13 @@ http://localhost:3000
 
 ### 方式二：Windows 一键启动
 
-双击运行：
+确认本机已经安装 Node.js 后，双击运行：
 
 ```text
 run-fit-tool.cmd
 ```
 
-脚本会尝试使用项目目录内的便携 Node.js；如果没有检测到 `node_modules`，会先执行 `npm install`，然后启动本地服务。
+如果没有检测到 `node_modules/`，脚本会先执行 `npm install`，然后启动本地服务。若你的本地目录中额外保留了便携版 Node.js 文件夹，脚本也会优先尝试使用它；但公开上传 GitHub 时不建议提交该文件夹。
 
 ## 使用方法
 
@@ -152,4 +159,3 @@ run-fit-tool.cmd
 ### 12. 最终使用责任
 
 你必须确保自己使用本项目的目的、方式和结果符合所在地法律法规、学校或单位规章制度、第三方平台用户协议以及基本诚信原则。任何不当使用造成的全部后果均由使用者自行承担，与项目作者和贡献者无关。
-
