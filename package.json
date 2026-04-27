@@ -1,0 +1,15 @@
+{
+  "name": "fit-web-tool",
+  "version": "1.0.0",
+  "description": "Simple web tool to draw a route on a map and generate a FIT running activity file",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@garmin/fitsdk": "*",
+    "express": "^4.18.2"
+  }
+}
